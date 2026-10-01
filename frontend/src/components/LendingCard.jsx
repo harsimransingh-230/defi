@@ -1,0 +1,1 @@
+export default function LendingCard({data}){return <div className="card"><h2>Lending Position</h2>{[["Supplied",data.deposited],["Borrowed",data.borrowed],["Max Borrow",data.maxBorrow],["Pool Liquidity",data.liquidity]].map(([x,v])=><div className="row" key={x}><span>{x}</span><strong>{v} dUSD</strong></div>)}</div>}

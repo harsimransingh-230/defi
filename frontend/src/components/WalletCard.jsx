@@ -1,0 +1,1 @@
+export default function WalletCard({account,balance,onFaucet}){return <div className="card"><h2>Wallet</h2><p className="address">{account}</p><h3>{balance} dUSD</h3><button onClick={onFaucet}>Get Test Tokens</button></div>}

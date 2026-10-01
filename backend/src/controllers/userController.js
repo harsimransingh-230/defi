@@ -1,0 +1,4 @@
+const db = require("../config/db");
+async function createUser(req,res){try{const {walletAddress}=req.body;if(!walletAddress)return res.status(400).json({message:"Wallet address required"});const r=await db.query(`INSERT INTO users(wallet_address) VALUES($1) ON CONFLICT(wallet_address) DO UPDATE SET updated_at=CURRENT_TIMESTAMP RETURNING *`,[walletAddress]);res.json({success:true,user:r.rows[0]});}catch(e){console.error(e);res.status(500).json({message:"Failed to create user"});}}
+async function getUser(req,res){try{const r=await db.query(`SELECT * FROM users WHERE wallet_address=$1`,[req.params.address]);if(!r.rows.length)return res.status(404).json({message:"User not found"});res.json(r.rows[0]);}catch(e){res.status(500).json({message:"Server error"});}}
+module.exports={createUser,getUser};

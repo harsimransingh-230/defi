@@ -1,0 +1,1 @@
+export default function Stats({data}){return <div className="stats">{[["Wallet Balance",data.balance],["Deposited",data.deposited],["Borrowed",data.borrowed],["Max Borrow",data.maxBorrow]].map(([x,v])=><div className="stat-card" key={x}><span>{x}</span><strong>{v} dUSD</strong></div>)}</div>}

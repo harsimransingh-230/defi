@@ -1,0 +1,1 @@
+import axios from "axios"; const api=axios.create({baseURL:import.meta.env.VITE_API_URL}); export async function saveUser(walletAddress){return api.post("/users",{walletAddress})} export async function saveTransaction(data){return api.post("/transactions",data)} export async function getTransactions(address){const r=await api.get(`/transactions/${address}`);return r.data}

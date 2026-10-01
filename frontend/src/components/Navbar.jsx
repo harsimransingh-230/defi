@@ -1,0 +1,1 @@
+export default function Navbar({account,onConnect}){return <nav className="navbar"><div className="logo">DeFiLend</div><button onClick={onConnect}>{account?`${account.slice(0,6)}...${account.slice(-4)}`:"Connect Wallet"}</button></nav>}

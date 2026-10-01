@@ -1,0 +1,1 @@
+export default function TransactionList({transactions}){return <div className="card"><h2>Transaction History</h2>{!transactions.length&&<p>No transactions yet.</p>}{transactions.map(t=><div className="transaction" key={t.id}><div><strong>{t.transaction_type}</strong><small>{t.tx_hash.slice(0,12)}...</small></div><span>{t.amount}</span></div>)}</div>}
